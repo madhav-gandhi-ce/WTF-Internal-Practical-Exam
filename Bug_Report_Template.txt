@@ -66,4 +66,4 @@ Mobile layout checked (Yes/No): Yes
 GIT VERSION CONTROL
 
 git log -1 --oneline output: 4669baf (HEAD -> master) Complete student fee scholarship planner
-GitHub URL (if available): [OPTIONAL - ENTER THE REPOSITORY URL IF YOU PUSH THE PROJECT TO GITHUB]
+GitHub URL (if available): https://github.com/madhav-gandhi-ce/WTF-Internal-Practical-Exam
