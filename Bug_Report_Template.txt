@@ -1,0 +1,69 @@
+ITUS102 - PRACTICAL EXAMINATION | DEBUGGING AND IMPLEMENTATION REPORT
+Date: 12-10-2026 | Task 01 - Student Fee and Scholarship Planner
+
+Enrollment No.: 26CE025
+Name: Madhav Gandhi
+
+SIMPLE BUGS (S1-S6)
+
+S1
+Original problem: The Fee calculator navigation link used the misspelled target #calcuator.
+Correction made: Changed the link target to #calculator.
+Why required: The link target must match the ID of the calculator section for navigation to work.
+
+S2
+Original problem: The site-information area at the bottom used a generic <div> element.
+Correction made: Replaced the <div class="site-footer"> element with a semantic <footer class="site-footer"> element.
+Why required: The footer element identifies the page's closing or site-information content semantically.
+
+S3
+Original problem: The body background-color declaration was missing a colon after the property name.
+Correction made: Changed it to background-color: #f1f6f9;
+Why required: CSS declarations need a colon between a property and its value; without it, the background color is not applied.
+
+S4
+Original problem: The CSS selector .pageTitle did not match the heading, which uses id="pageTitle" in the HTML.
+Correction made: Changed .pageTitle to #pageTitle.
+Why required: The # selector targets an element by its ID, so the heading receives the intended styling.
+
+S5
+Original problem: The tuition fee input value was read as text, so adding it to the laboratory fee could concatenate strings instead of adding numbers.
+Correction made: Converted the tuition fee value to a number using Number(document.getElementById("baseFee").value).
+Why required: Both fee values must be numeric so the subtotal is calculated correctly.
+
+S6
+Original problem: The administration charge was calculated using 0.50, which is 50% of the subtotal.
+Correction made: Changed the multiplier from 0.50 to 0.05.
+Why required: The stated policy requires an administration charge equal to 5% of the fee subtotal.
+
+CODE COMPLETION / IMPLEMENTATION (M1-M6, D1-D3)
+
+M1: Added <meta charset="UTF-8"> and a responsive viewport meta element in the HTML head.
+M2: Added a semantic <aside class="notice"> containing the heading "Important Note" and a sentence reminding users to check the entered values.
+M3: Added display: flex and justify-content: space-between to .nav-links to display navigation links horizontally on wider screens.
+M4: Added display: grid and grid-template-columns: repeat(2, minmax(0, 1fr)) to .cards to display the two cards in equal-width columns.
+M5: Added a max-width: 600px media query that stacks the cards into one column and changes navigation to a vertical layout.
+M6: Implemented calculateDiscount(amount, percentage) to return amount * percentage / 100.
+D1: Implemented getRate(type) using if/else if/else: Merit returns 20, Sports returns 10, and None or another type returns 0.
+D2: Implemented calculateTotal(subtotal, discount, adminCharge) to return subtotal - discount + adminCharge.
+D3: Implemented buildBreakdown(payable, count) using a for loop to display each semester and the cumulative fee (payable multiplied by the semester number).
+Additional usability change: Added scrolling to the results section after Calculate is clicked, including when an input validation message is displayed.
+
+FUNCTIONAL TEST
+
+Required test input: Tuition ₹50,000; laboratory fee ₹2,000; Merit scholarship; 2 semesters.
+Expected result: Subtotal ₹52,000; discount ₹10,400; administration charge ₹2,600; payable per semester ₹44,200; cumulative after semester 2 ₹88,400.
+
+Observed scholarship tests (reported by student):
+- Merit: discount ₹10,400; payable per semester ₹44,200.
+- Sports: discount ₹5,200; payable per semester ₹49,400.
+- None: discount ₹0; payable per semester ₹54,600.
+
+Additional browser checks: Student reported that navigation links opened the correct sections in iPhone device emulation. The Calculate button's scroll-to-results behavior and the stacked mobile card layout must be checked again after using the updated project files.
+
+Mobile layout checked (Yes/No): Yes
+
+GIT VERSION CONTROL
+
+git log -1 --oneline output: 4669baf (HEAD -> master) Complete student fee scholarship planner
+GitHub URL (if available): [OPTIONAL - ENTER THE REPOSITORY URL IF YOU PUSH THE PROJECT TO GITHUB]
